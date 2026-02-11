@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+  <meta charset="UTF-8" />
+  <title>履安出行 | 山泥傾瀉智能平台</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="theme-light">
+
+<header class="topbar">
+  <div class="logo">履安出行</div>
+  <div class="theme-switch">
+    <button onclick="setTheme('light')">☀️</button>
+    <button onclick="setTheme('dark')">🌙</button>
+    <button onclick="setTheme('blue')">🌊</button>
+  </div>
+</header>
+
+<main>
+
+<!-- ================= HOME ================= -->
+<section id="home" class="page active">
+  <div class="hero-card">
+    <h1>山泥傾瀉智能風險平台</h1>
+    <p>結合 AI 圖像分析、即時天氣數據與風險地圖，為市民提供快速、安全與可靠的預警服務。</p>
+    <button onclick="showPage('ai')">開始 AI 分析</button>
+  </div>
+
+  <div class="grid">
+    <div class="feature-card" onclick="showPage('ai')">📸 AI 影像分析</div>
+    <div class="feature-card" onclick="showPage('map')">🗺 風險地圖</div>
+    <div class="feature-card" onclick="showPage('weather')">🌧 即時天氣</div>
+    <div class="feature-card" onclick="showPage('safety')">🛡 安全資訊</div>
+  </div>
+</section>
+
+<!-- ================= AI ================= -->
+<section id="ai" class="page">
+  <h2>📸 AI 圖像風險分析</h2>
+  <div class="card">
+    <input type="file" id="imageInput" accept="image/*" />
+    <label for="imageInput" class="upload-btn">選擇照片</label>
+    <div id="previewBox" class="hidden">
+      <img id="previewImage" />
+      <div class="result">
+        <p id="aiResult">等待分析...</p>
+        <p id="riskTip"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section id="map" class="page">
+  <h2>🗺 山泥傾瀉風險熱力圖</h2>
+  <div id="mapBox"></div>
+</section>
+
+<!-- ================= WEATHER ================= -->
+<section id="weather" class="page">
+  <h2>🌧 即時天氣資料</h2>
+  <div class="weather-cards">
+    <div class="weather-card">
+      <h3>溫度</h3>
+      <p id="temp">-- °C</p>
+    </div>
+    <div class="weather-card">
+      <h3>降雨</h3>
+      <p id="rain">-- mm</p>
+    </div>
+    <div class="weather-card">
+      <h3>風險評估</h3>
+      <p id="weatherRisk">--</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SAFETY ================= -->
+<section id="safety" class="page">
+  <h2>🛡 山泥傾瀉安全指引</h2>
+  <ul class="list">
+    <li>🚨 發現裂縫、滲水應立即遠離。</li>
+    <li>🌧 暴雨期間避免靠近斜坡。</li>
+    <li>📞 緊急時致電 999 或 1823。</li>
+  </ul>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="page">
+  <h2>🚨 緊急聯絡</h2>
+  <div class="contact-cards">
+    <div class="contact-card">📞 999</div>
+    <div class="contact-card">🏛 1823</div>
+    <div class="contact-card">🏥 急症室</div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= MOBILE BOTTOM NAV ================= -->
+<nav class="bottom-nav">
+  <button onclick="showPage('home')">🏠<span>首頁</span></button>
+  <button onclick="showPage('ai')">📸<span>AI</span></button>
+  <button onclick="showPage('map')">🗺<span>地圖</span></button>
+  <button onclick="showPage('weather')">🌧<span>天氣</span></button>
+  <button onclick="showPage('contact')">🚨<span>求助</span></button>
+</nav>
+
+<footer>
+  <p>© 2026 履安出行 Landslide Safety Platform</p>
+</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
